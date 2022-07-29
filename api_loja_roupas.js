@@ -24,6 +24,14 @@ app.get('/listar/roupas', (request, response) => {
 })
 
 
-app.listen(8000, () => {
+app.post('/excluir/roupas', (request,response) => {
+    const id = Roupas.indexOf('id');
+    const dell = Roupas.splice(id,1)
+        console.log("Roupa excluida...")
+    return response.send(dell)
+})
+
+
+app.listen(3000, () => {
     console.log('Status: Loja Aberta...')
     })
