@@ -86,6 +86,11 @@ app.post('/excluir/cliente', (request,response) => {
     return response.send(delete_id)
 })
 
+app.get('/listar/cliente/tenis', (request, response) => {
+    console.log(request.body);
+    return response.json(cliente,Roupas,tenis)
+})
+
 
 app.listen(3000, () => {
     console.log('Status: Loja Aberta...')
