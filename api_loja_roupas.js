@@ -1,5 +1,5 @@
 const { request, response } = require('express');
-const express = require('express')
+const express = require('express');
 const app = express();
 var uuid = require('uuid');
 
@@ -29,6 +29,21 @@ app.post('/excluir/roupas', (request,response) => {
     const dell = Roupas.splice(id,1)
         console.log("Roupa excluida...")
     return response.send(dell)
+})
+
+const cliente = [];
+
+app.post('/cadastro/cliente', (request, response) => {
+    const validarcliente = cliente.find((user) => user.nome == request.body.nome)
+        if (validarcliente){
+            return response.send("Erro: nome Já Cadastrado.")}
+        
+        cliente.push({
+        id: uuid.v4(),
+        nome: request.body.nome,
+        senha: request.body.senha    
+    })
+    return response.send("nome cadastrado.")
 })
 
 
