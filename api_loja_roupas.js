@@ -51,6 +51,13 @@ app.get('/listar/tenis', (request, response) => {
     return response.json(tenis)
 })
 
+app.post('/excluir/tenis', (request,response) => {
+    const id = tenis.indexOf('id');
+    const dell = tenis.splice(id,1)
+        console.log("Tenis excluido...")
+    return response.send(dell)
+})
+
 const cliente = [];
 
 app.post('/cadastro/cliente', (request, response) => {
