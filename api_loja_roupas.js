@@ -47,6 +47,11 @@ app.post('/cadastro/cliente', (request, response) => {
 })
 
 
+app.get('/listar/cliente', (request, response) => {
+    console.log(request.body);
+    return response.json(cliente)
+})
+
 app.listen(3000, () => {
     console.log('Status: Loja Aberta...')
     })
