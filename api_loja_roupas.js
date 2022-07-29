@@ -52,6 +52,14 @@ app.get('/listar/cliente', (request, response) => {
     return response.json(cliente)
 })
 
+app.post('/excluir/cliente', (request,response) => {
+    const id = cliente.indexOf('id');
+    const delete_id = cliente.splice(id,1)
+        console.log("Produto excluido...")
+    return response.send(delete_id)
+})
+
+
 app.listen(3000, () => {
     console.log('Status: Loja Aberta...')
     })
