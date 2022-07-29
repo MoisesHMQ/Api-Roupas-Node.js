@@ -46,6 +46,11 @@ app.post('/cadastro/tenis', (request, response) => {
     return response.send("Tenis cadastrado.")
 })
 
+app.get('/listar/tenis', (request, response) => {
+    console.log(request.body);
+    return response.json(tenis)
+})
+
 const cliente = [];
 
 app.post('/cadastro/cliente', (request, response) => {
