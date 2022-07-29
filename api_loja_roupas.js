@@ -31,6 +31,21 @@ app.post('/excluir/roupas', (request,response) => {
     return response.send(dell)
 })
 
+const tenis = [];
+
+app.post('/cadastro/tenis', (request, response) => {
+    const validartenis = tenis.find((validaçao) => validaçao.Tenis == request.body.Tenis)
+        if (validartenis){
+            return response.send("Status: Tenis Já Cadastrado.")}
+        
+        tenis.push({
+        id: uuid.v4(),
+        Tenis: request.body.Tenis,
+        numero: request.body.numero    
+    })
+    return response.send("Tenis cadastrado.")
+})
+
 const cliente = [];
 
 app.post('/cadastro/cliente', (request, response) => {
@@ -55,7 +70,7 @@ app.get('/listar/cliente', (request, response) => {
 app.post('/excluir/cliente', (request,response) => {
     const id = cliente.indexOf('id');
     const delete_id = cliente.splice(id,1)
-        console.log("Produto excluido...")
+        console.log("Tenis excluido...")
     return response.send(delete_id)
 })
 
